@@ -22,13 +22,15 @@ export default function NavbarHome() {
         <div>
              <Navbar className="navbar-home" expand="md">
                 <NavbarBrand>
-                    <img src={Logo} className="navbarhome-logo" />
+                    <Link to="/">
+                        <img src={Logo} className="navbarhome-logo" />
+                    </Link>
                 </NavbarBrand>
                 <NavbarToggler onClick={toggle} />
                 <Collapse isOpen={isOpen} navbar>
                 <Nav className="mr-auto ml-auto" navbar>
                     <NavItem>
-                    <Link to="/"><i className="fas fa-home homenavbar-icon active" ></i> </Link>
+                    <Link to="/"><i className="fas fa-home homenavbar-icon " ></i> </Link>
                     </NavItem>
                     <NavItem>
                     <Link to="/about"><i className="fas fa-info-circle homenavbar-icon"></i></Link>

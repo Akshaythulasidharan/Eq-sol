@@ -124,3 +124,27 @@
     padding-right: 60px;
     padding-left: 60px;
 }
+
+.about-logo{
+    width:200px;
+    
+}
+
+.about-box{
+    background-color: #202629;
+    border-radius: 50px;
+    box-shadow: 0px 0px 40px 0px rgba(0,0,0,0.75);
+    padding: 50px;
+}
+
+.center{
+    position: relative;
+    left:50%;
+    transform: translateX(-50%);
+}
+
+.vert-center{
+    position: relative;
+    top:50%;
+    transform: translateY(-50%);
+}
