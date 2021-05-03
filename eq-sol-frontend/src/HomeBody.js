@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import camera from "./images/camera.png"
 import upload from "./images/upload.png"
 
@@ -16,8 +17,10 @@ export default function HomeBody() {
                     <div className="card-box">
                             <div className="card-content">
                                 <img src={camera} className="home-icon" /> <br/>
+                                <Link to="/camera">
                                 <button className="btn btn-home" style={{position:"relative",left:"50%",
                                 transform: "translateX(-50%)"}}>Capture using Webcam</button>
+                                </Link>
                             </div>
                     </div>
                 </div>
@@ -25,8 +28,10 @@ export default function HomeBody() {
                     <div className="card-box">
                             <div className="card-content">
                                 <img src={upload} className="home-icon" /> <br/>
+                                <Link to="/upload">
                                 <button className="btn btn-home" style={{position:"relative",left:"50%",
                                 transform: "translateX(-50%)"}}>Upload the picture</button>
+                                </Link>
                             </div>
                     </div>
                 </div>

@@ -7,9 +7,9 @@ import {
     NavbarBrand,
     Nav,
     NavItem,
-    NavLink,
     NavbarText
 } from 'reactstrap';
+import {Link} from 'react-router-dom'
 
 
   
@@ -28,12 +28,11 @@ export default function NavbarHome() {
                 <Collapse isOpen={isOpen} navbar>
                 <Nav className="mr-auto ml-auto" navbar>
                     <NavItem>
-                    <NavLink href="/"><i className="fas fa-home homenavbar-icon active" ></i> </NavLink>
+                    <Link to="/"><i className="fas fa-home homenavbar-icon active" ></i> </Link>
                     </NavItem>
                     <NavItem>
-                    <NavLink href="/"><i className="fas fa-info-circle homenavbar-icon"></i></NavLink>
-                    </NavItem>
-                    
+                    <Link to="/about"><i className="fas fa-info-circle homenavbar-icon"></i></Link>
+                    </NavItem> 
                 </Nav>
                 <NavbarText><i class="fas fa-cog" style={{fontSize:"30px"}}></i></NavbarText>
                 </Collapse>
