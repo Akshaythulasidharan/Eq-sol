@@ -5,9 +5,10 @@ import {
   } from "react-router-dom";
 import About from './About';
 import Answer from './Answer';
+import ApiFetcher from './ApiFetcher';
 import Camera from './Camera';
 import HomeBody from './HomeBody';
-import ImageShow from './ImageShow';
+
 import Upload from './Upload';
 
 export default function Routes() {
@@ -19,7 +20,7 @@ export default function Routes() {
                 <Route path="/camera" component={Camera} />
                 <Route path="/upload" component={Upload} />
                 <Route path="/answer" component={Answer} />
-                <Route path="/imageshow/:id" component={ImageShow} />
+                <Route path="/api" component={ApiFetcher} />
             </Switch>
         </div>
     )

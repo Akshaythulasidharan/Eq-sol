@@ -177,3 +177,17 @@
 
     
 }
+.modal-content{
+    background-color: #202629;
+    border-radius: 50px;
+    
+
+}
+
+.modal-img{
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+

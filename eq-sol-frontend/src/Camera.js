@@ -1,8 +1,15 @@
 import React, { useState,useEffect } from 'react'
 import Webcam from "react-webcam";
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import {Link} from 'react-router-dom'
 
 export default function Camera() {
 
+  
+  
+    const [modal, setModal] = useState(false);
+  
+    const toggle = () => setModal(!modal);
   const videoConstraints = {
     width: 1920,
     height: 1080,
@@ -16,7 +23,10 @@ export default function Camera() {
     setImgSrc(imageSrc);
   }, [webcamRef, setImgSrc]);
 
+  
 
+
+  
     return (
         <div>
             <div className="container-fluid" >
@@ -28,10 +38,29 @@ export default function Camera() {
             width={1920}
             videoConstraints={videoConstraints}
             className="video-element"/>
-            <img src={imgSrc}/>
-            <button onClick={capture} className="btn camera-btn" >
+            <button onMouseDown={capture} onMouseUp={toggle} className="btn camera-btn" >
             <i class="fas fa-camera"></i> </button>
             </div>
+
+            <Modal size="xl"  centered fade isOpen={modal} toggle={toggle} >
+            <div style={{height:"50px"}} ></div>
+              <ModalBody  >
+                <div className="container">
+                <img src={imgSrc} height="450" className="modal-img" />
+                </div>
+          
+                  <button onClick={toggle} className="btn btn-home" >Take Another Pic</button>
+                  <Link to={{
+                    pathname: `/api`,
+                    state: {imgSrc},
+                    test: "hii"
+                  }}>
+                    <button className="btn btn-home" >Proceed</button>
+                  </Link>
+
+              </ModalBody>
+            </Modal>
+
 
             
 
