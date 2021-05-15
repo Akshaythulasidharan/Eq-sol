@@ -43,20 +43,22 @@ export default function Camera() {
             </div>
 
             <Modal size="xl"  centered fade isOpen={modal} toggle={toggle} >
-            <div style={{height:"50px"}} ></div>
               <ModalBody  >
+                <div style={{height:"50px"}} ></div>
                 <div className="container">
                 <img src={imgSrc} height="450" className="modal-img" />
                 </div>
-          
-                  <button onClick={toggle} className="btn btn-home" >Take Another Pic</button>
+                <div style={{height:"20px"}} ></div>
+                  <div className="text-center">
+                  <button onClick={toggle} className="btn btn-home"  style={{margin:"20px"}} >Take Another Pic</button>
                   <Link to={{
                     pathname: `/api`,
                     state: {imgSrc},
                     test: "hii"
                   }}>
-                    <button className="btn btn-home" >Proceed</button>
+                    <button className="btn btn-home" style={{margin:"20px"}} >Proceed</button>
                   </Link>
+                  </div>
 
               </ModalBody>
             </Modal>
