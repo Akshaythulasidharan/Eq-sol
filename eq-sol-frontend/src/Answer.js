@@ -1,9 +1,48 @@
 import React from 'react'
-
+import { Link } from 'react-router-dom'
 export default function Answer() {
-    return (
+        return (
         <div>
-            <h1>Answer</h1>
+            <div className="container" >
+                <div className="row" style={{height:"30px"}} ></div>
+                <div className="row justify-content-center ans-container" >
+                    <div className="col-12" style={{height:"30px"}}></div>
+                    <div className="col-9 align-self-center">
+                        <div className="row" style={{marginTop:"20px", marginBottom:"20px"}}>
+                            <div className="col-5">
+                                <div className="ans-para">Equation:</div>
+                            </div>
+                            <div className="col-7" style={{backgroundColor:"#121212", borderRadius:"13px"}}>
+                                <div className="ans-para">5x + 3 = 23</div>
+                            </div>
+                        </div>
+                        <div className="row" style={{marginTop:"20px", marginBottom:"20px"}}>
+                            <div className="col-5">
+                                <div className="ans-para">Type of Equation:</div>
+                            </div>
+                            <div className="col-7" style={{backgroundColor:"#121212", borderRadius:"13px"}}>
+                                <div className="ans-para">Linear Equation</div>
+                            </div>
+                        </div>
+                        <div className="row" style={{marginTop:"20px", marginBottom:"20px"}}>
+                            <div className="col-5">
+                                <div className="ans-para">Answer:</div>
+                            </div>
+                            <div className="col-7" style={{backgroundColor:"#121212", borderRadius:"13px"}}>
+                                <div className="ans-para">x = 4</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="col-12" style={{height:"30px"}}></div>
+                    
+                </div>
+                <div className="row" >
+                                <Link to="/home">
+                                <button className="btn btn-home" style={{position:"relative",left:"50%",
+                                transform: "translateX(-50%)"}}>Go to Home</button>
+                                </Link>
+                </div>
+            </div>
         </div>
     )
 }

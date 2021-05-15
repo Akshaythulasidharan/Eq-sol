@@ -18,7 +18,6 @@ export default function Routes() {
                 <Route path="/about" component={About} />
                 <Route exact path="/" component={HomeBody} />
                 <Route path="/camera" component={Camera} />
-                <Route path="/upload" component={Upload} />
                 <Route path="/answer" component={Answer} />
                 <Route path="/api" component={ApiFetcher} />
             </Switch>

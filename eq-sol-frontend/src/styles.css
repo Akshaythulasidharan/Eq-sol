@@ -196,8 +196,18 @@
     height: 500px;
     border: 2px dashed #626566;
     margin: 0 auto;
+    border-radius: 10px;
     
 
 
 }
 
+.ans-container{
+    margin:0 auto; width:90%; box-shadow: 0px 0px 40px 0px rgba(0,0,0,0.75); border-radius: 50px;
+}
+
+.ans-para{
+    font-weight: 600;
+    font-size: 20px;
+    margin: 16px;
+}
