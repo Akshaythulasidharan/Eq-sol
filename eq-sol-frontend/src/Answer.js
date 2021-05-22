@@ -36,10 +36,10 @@ export default function Answer() {
                     <div className="col-12" style={{height:"30px"}}></div>
                     
                 </div>
-                <div className="row" >
-                                <Link to="/home">
-                                <button className="btn btn-home" style={{position:"relative",left:"50%",
-                                transform: "translateX(-50%)"}}>Go to Home</button>
+                <div  style={{height:"30px"}}></div>
+                <div className="text-center" >
+                                <Link to="/" className="btn btn-home" >
+                                Go to Home
                                 </Link>
                 </div>
             </div>

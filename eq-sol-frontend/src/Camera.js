@@ -2,6 +2,8 @@ import React, { useState,useEffect } from 'react'
 import Webcam from "react-webcam";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import {Link} from 'react-router-dom'
+import Upload from './Upload';
+import UploadCrop from './UploadCrop';
 
 export default function Camera() {
 
@@ -44,7 +46,7 @@ export default function Camera() {
 
             <Modal size="xl"  centered fade isOpen={modal} toggle={toggle} >
               <ModalBody  >
-                <div style={{height:"50px"}} ></div>
+                {/* <div style={{height:"50px"}} ></div>
                 <div className="container">
                 <img src={imgSrc} height="450" className="modal-img" />
                 </div>
@@ -52,13 +54,15 @@ export default function Camera() {
                   <div className="text-center">
                   <button onClick={toggle} className="btn btn-home"  style={{margin:"20px"}} >Take Another Pic</button>
                   <Link to={{
-                    pathname: `/api`,
+                    pathname: `/answer`,
                     state: {imgSrc},
                     test: "hii"
                   }}>
                     <button className="btn btn-home" style={{margin:"20px"}} >Proceed</button>
                   </Link>
-                  </div>
+                  </div> */}
+
+                  <UploadCrop image={imgSrc} />
 
               </ModalBody>
             </Modal>
