@@ -1,7 +1,11 @@
+
+//Here just access answers from props and display it effectively That's it. Ending part of the application
+// we have a button if clicked, directs to starting ie, HomeBody.js component where we repeat the
 import React from 'react'
 import { Link } from 'react-router-dom'
+
 export default function Answer() {
-        return (
+    return (
         <div>
             <div className="container" >
                 <div className="row" style={{height:"30px"}} ></div>
@@ -39,7 +43,7 @@ export default function Answer() {
                 <div  style={{height:"30px"}}></div>
                 <div className="text-center" >
                                 <Link to="/" className="btn btn-home" >
-                                Go to Home
+                                    Go to Home
                                 </Link>
                 </div>
             </div>

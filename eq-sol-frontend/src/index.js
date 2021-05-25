@@ -1,10 +1,12 @@
+
+//index.js only connects Home Component to div#root , now go to Home.js
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
-//index.js only connects main component App to div#root , now go to App.js
+import Home from './Home';
+import './styles.css'
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Home/>
   </React.StrictMode>,
   document.getElementById('root')
 );
