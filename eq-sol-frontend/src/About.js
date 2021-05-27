@@ -25,6 +25,7 @@ export default function About() {
                             <li>Karun Krishnan&nbsp;&nbsp;<i class="fab fa-linkedin list-icon"></i></li>
                             <li>Adhithya T&nbsp;&nbsp;<i class="fab fa-linkedin list-icon" ></i></li>
                         </ul>
+                        
                     </p>
                 </div>
             </div>

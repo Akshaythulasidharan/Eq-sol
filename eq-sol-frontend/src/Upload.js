@@ -13,6 +13,7 @@ export default function Upload(props) {
 
   const [uploadImg,SetImg] = useState(0);
 
+  // for upload image property, it accepts image and stores in uploadImg
   const onDrop = useCallback((acceptedFiles) => {
 
     acceptedFiles.forEach((file) => {
@@ -29,8 +30,9 @@ export default function Upload(props) {
     })
 
   }, []);
-
   const { getRootProps , getInputProps} = useDropzone({onDrop})
+
+  //here when no uploadImg, displays upload image box, if image uploaded shows ImageCrop
   var first =
     <div {...getRootProps()} className="upload-container" style={{display: "table"}}>
       <input {...getInputProps()}  />

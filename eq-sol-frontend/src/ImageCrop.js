@@ -14,6 +14,7 @@ export default class ImageCrop extends Component {
     },
   };
 
+  //below is code for crop image activation
   onSelectFile = e => {
     if (e.target.files && e.target.files.length > 0) {
       const reader = new FileReader();
@@ -102,6 +103,7 @@ export default class ImageCrop extends Component {
         <div >
           {console.log(this.props.link)}
           <Link onClick={this.props.toggle}><button className="btn btn-home" style={{margin:"0px"}} >{this.props.btn}</button> </Link>
+          {/* here we pass the image to the API Fetcher component */}
           <Link to={{
             pathname:"/answer",
             state: {

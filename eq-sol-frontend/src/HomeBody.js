@@ -18,6 +18,7 @@ export default function HomeBody() {
 
     return (
         <div className="container">
+            {/* Heading */}
             <div className="row mt-3">
                 <p className="home-heading ">
                     <ReactTypingEffect
@@ -31,6 +32,7 @@ export default function HomeBody() {
                     <p className="home-para">Let's start solving the equations.</p>
                 </p> 
             </div>
+            {/* The two option boxes, webcam and upload */}
             <div className="row justify-content-center">
                 <div className="col-4 card-box">
                     <div className="card-content">
@@ -52,6 +54,8 @@ export default function HomeBody() {
                     </div>
                 </div>
             </div>
+
+            {/* Modal when upload triggers */}
             <Modal isOpen={modal} toggle={toggle} centered size="xl" >
                 <Upload toggle={toggle}/>
             </Modal>

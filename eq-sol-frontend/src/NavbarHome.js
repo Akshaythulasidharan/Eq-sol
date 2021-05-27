@@ -10,6 +10,7 @@ export default function NavbarHome() {
     const [isOpen, setIsOpen] = useState(false);  
     const toggle = () => setIsOpen(!isOpen);
     const [HomeActive,SetActive] = useState(false);
+    // Logic for that nav icon active
     var Home,About;
     if(HomeActive){
         Home = <Link to="/" onClick={e => SetActive(false)} className="fas fa-home homenavbar-icon " ></Link>

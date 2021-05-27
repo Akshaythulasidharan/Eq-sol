@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom'
 
 export default function Answer(props) {
     return (
+        
         <div>
             <div className="container" >
                 <div className="row" style={{height:"30px"}} ></div>

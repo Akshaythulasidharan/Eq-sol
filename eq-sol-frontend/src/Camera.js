@@ -12,6 +12,8 @@ export default function Camera() {
 
   const [modal, setModal] = useState(false);
   const toggle = () => setModal(!modal);
+
+  //method for camera capture
   const videoConstraints = {
     width: 1920,
     height: 1080,
@@ -19,7 +21,6 @@ export default function Camera() {
   };
   const webcamRef = React.useRef(null);
   const [imgSrc, setImgSrc] = React.useState(null);
-
   const capture = React.useCallback(() => {
     const imageSrc = webcamRef.current.getScreenshot();
     setImgSrc(imageSrc);
@@ -39,6 +40,7 @@ export default function Camera() {
         />
         <button onMouseDown={capture} onMouseUp={toggle} className="btn camera-btn" ><i class="fas fa-camera"></i> </button>
       </div>
+      {/* Modal after clicking capture button */}
       <Modal size="xl" className="modal"  centered fade isOpen={modal} toggle={toggle} >
         <ModalBody  >
           <ImageCrop image={imgSrc} btn="Click another Pic" toggle={toggle}/>
