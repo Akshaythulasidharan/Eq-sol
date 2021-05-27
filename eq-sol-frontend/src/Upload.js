@@ -9,7 +9,7 @@ import {useDropzone} from 'react-dropzone'
 import {ModalBody} from 'reactstrap';
 import ImageCrop from './ImageCrop';
 
-export default function Upload() {
+export default function Upload(props) {
 
   const [uploadImg,SetImg] = useState(0);
 
@@ -39,7 +39,7 @@ export default function Upload() {
       </div>
     </div>
   ;  
-  var second  = <ImageCrop image={uploadImg} />
+  var second  = <ImageCrop image={uploadImg} btn="Upload another Pic" toggle={props.toggle} />
   var render;
 
   if(uploadImg){
@@ -51,9 +51,7 @@ export default function Upload() {
   return (
     <div >
       <ModalBody>
-        <div style={{height:"50px"}} ></div>
           {render}
-        <div style={{height:"50px"}} ></div>
       </ModalBody>
     </div>
   )

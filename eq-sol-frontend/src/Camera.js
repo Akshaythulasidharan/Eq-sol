@@ -3,7 +3,7 @@
 //We are using react-webcam module for this.
 //After clicking the picture, a modal ie dialog box appears displays ImageCrop component
 //We send the clicked image to ImageCrop Component, visit ImageCrop.js
-import React, { useState } from 'react'
+import React, { lazy, useState } from 'react'
 import Webcam from "react-webcam";
 import { Modal, ModalBody} from 'reactstrap';
 import ImageCrop from './ImageCrop';
@@ -39,9 +39,9 @@ export default function Camera() {
         />
         <button onMouseDown={capture} onMouseUp={toggle} className="btn camera-btn" ><i class="fas fa-camera"></i> </button>
       </div>
-      <Modal size="xl"  centered fade isOpen={modal} toggle={toggle} >
+      <Modal size="xl" className="modal"  centered fade isOpen={modal} toggle={toggle} >
         <ModalBody  >
-          <ImageCrop image={imgSrc} />
+          <ImageCrop image={imgSrc} btn="Click another Pic" toggle={toggle}/>
         </ModalBody>
       </Modal>
     </div>  

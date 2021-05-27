@@ -2,6 +2,8 @@
 //the module which appears at starting, shows heading and two options ie, capture pic using Webcam and Upload.
 //when camera click, HomeBody navigates to Camera.js, visit it.
 // when upload click, a Modal ie, a dialog box appears which displays Upload.js, visit it.
+//also used wc-typed-js module for typing animation
+import ReactTypingEffect from 'react-typing-effect';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom'
 import { Modal } from 'reactstrap';
@@ -18,36 +20,40 @@ export default function HomeBody() {
         <div className="container">
             <div className="row mt-3">
                 <p className="home-heading ">
-                    Hola, Estudiantes
+                    <ReactTypingEffect
+                        text={["Hello, Students", "Hola, Estudiantes", "Bonjours les étudiants"]}
+                        Speed="100ms"
+                        eraseSpeed="100ms"
+                        eraseDelay="100ms"
+                        typingDelay="100ms"
+                        cursor=" "
+                    />
                     <p className="home-para">Let's start solving the equations.</p>
                 </p> 
             </div>
-            <div className="row">
-                <div className="col">
-                    <div className="card-box">
-                            <div className="card-content">
-                                <img src={camera} className="home-icon" /> <br/>
-                                <Link to="/camera">
-                                    <button className="btn btn-home" style={{position:"relative",left:"50%",
-                                    transform: "translateX(-50%)"}}>Capture using Webcam</button>
-                                </Link>
-                            </div>
+            <div className="row justify-content-center">
+                <div className="col-4 card-box">
+                    <div className="card-content">
+                        <img src={camera} className="home-icon" /> <br/>  <br/>
+                        <Link to="/camera">
+                            <button className="btn btn-home" style={{position:"relative",left:"50%",
+                            transform: "translateX(-50%)"}}>Capture using Webcam</button>
+                        </Link>
                     </div>
                 </div>
-                <div className="col">
-                    <div className="card-box">
-                            <div className="card-content">
-                                <img src={upload} className="home-icon" /> <br/>
-                                <Link onClick={toggle}>
-                                    <button className="btn btn-home" style={{position:"relative",left:"50%",
-                                    transform: "translateX(-50%)"}}>Upload the picture</button>
-                                </Link>
-                            </div>
+                <div className="col-1"></div>
+                <div className="col-4 card-box">
+                    <div className="card-content">
+                        <img src={upload} className="home-icon" /> <br/> <br/>
+                        <Link onClick={toggle}>
+                            <button className="btn btn-home" style={{position:"relative",left:"50%",
+                            transform: "translateX(-50%)"}}>Upload the picture</button>
+                        </Link>
                     </div>
                 </div>
             </div>
             <Modal isOpen={modal} toggle={toggle} centered size="xl" >
-                <Upload/>
+                <Upload toggle={toggle}/>
             </Modal>
         </div>
     )

@@ -9,9 +9,18 @@ export default function NavbarHome() {
 
     const [isOpen, setIsOpen] = useState(false);  
     const toggle = () => setIsOpen(!isOpen);
+    const [HomeActive,SetActive] = useState(false);
+    var Home,About;
+    if(HomeActive){
+        Home = <Link to="/" onClick={e => SetActive(false)} className="fas fa-home homenavbar-icon " ></Link>
+        About = <Link to="/about" onClick={e => SetActive(true)} className="fas fa-info-circle homenavbar-icon active" ></Link>
+    }else{
+        Home = <Link to="/" onClick={e => SetActive(false)} className="fas fa-home homenavbar-icon active" ></Link>
+        About = <Link to="/about" onClick={e => SetActive(true)} className="fas fa-info-circle homenavbar-icon " ></Link>
+    }
     return (
         <div>
-             <Navbar className="navbar-home" expand="md">
+             <Navbar className="navbar-home" expand="xs">
                 <NavbarBrand>
                     <Link to="/">
                         <img src={Logo} className="navbarhome-logo" />
@@ -21,13 +30,13 @@ export default function NavbarHome() {
                 <Collapse isOpen={isOpen} navbar>
                     <Nav className="mr-auto ml-auto" navbar>
                         <NavItem>
-                            <Link to="/"><i className="fas fa-home homenavbar-icon " ></i> </Link>
+                            {Home}
                         </NavItem>
                         <NavItem>
-                            <Link to="/about"><i className="fas fa-info-circle homenavbar-icon"></i></Link>
+                            {About}
                         </NavItem> 
                     </Nav>
-                    <NavbarText><i class="fas fa-cog" style={{fontSize:"30px"}}></i></NavbarText>
+                    <NavbarText><i class="fas fa-cog spin"  ></i></NavbarText>
                 </Collapse>
             </Navbar>
         </div>

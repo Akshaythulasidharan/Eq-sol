@@ -89,21 +89,23 @@ export default class ImageCrop extends Component {
     const { crop, croppedImageUrl, src } = this.state;
     return (
       <div className="container">
+        <div style={{height:"25px"}} ></div>
+        <p className="text-center ">Drag over the image to crop the respective equation.</p>
         <div className="row">
-          <ReactCrop src={this.props.image} crop={crop} className="img-fluid" ruleOfThirds
+          <ReactCrop src={this.props.image} crop={crop} className="img-fluid crop-image" ruleOfThirds
             onImageLoaded={this.onImageLoaded}
             onComplete={this.onCropComplete}
             onChange={this.onCropChange} 
           />
       </div>
       <div className="row justify-content-center">
-        <div className="col-5">
-          <Link to="/home"><button className="btn btn-home" style={{margin:"20px"}} >Upload another pic</button> </Link>
+        <div >
+          {console.log(this.props.link)}
+          <Link onClick={this.props.toggle}><button className="btn btn-home" style={{margin:"0px"}} >{this.props.btn}</button> </Link>
           <Link to={{
             pathname:"/answer",
             state: {
-              image:croppedImageUrl,
-              hi:"hehehe"
+              image:croppedImageUrl
             }
           }}>
             <button className="btn btn-home" style={{margin:"20px"}} >Proceed</button>
