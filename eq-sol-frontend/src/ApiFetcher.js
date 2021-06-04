@@ -9,35 +9,47 @@ import Answer from './Answer';
 export default function ApiFetcher(props) {
 
     const [error,Seterror] = useState(0);
-    const [isLoaded,SetisLoaded] = useState(false);
+    const [isLoaded,SetisLoaded] = useState(true);
+    const [test, SetTest] = useState(0);
     
     const [EqnImg,SetEqnImg] = useState(0);
     const [Ans,SetAns] = useState(0);
+    // SetAns({
+    //   Eqn:"5x + 3 = 23",
+    //   TypeEqn:"Linear Equation",
+    //   EqnAns:"x = 4"
+    //   });
+
+    var a = {
+      Eqn:"5x + 3 = 23",
+      TypeEqn:"Linear Equation",
+      EqnAns:"x = 4"
+      };
 
     // 'https://jsonplaceholder.typicode.com/todos/1'
-    useEffect(() => {
-        SetEqnImg(props.location.state.image)
-        fetch('https://jsonplaceholder.typicode.com/todos/1',{
-          
-        })
-          .then(res => res.json())
-          .then(
-            (result) => {
-              SetisLoaded(true);
-              SetAns({
-                Eqn:"5x + 3 = 23",
-                TypeEqn:"Linear Equation",
-                EqnAns:"x = 4"
-                });
+    // useEffect(() => {
+    //     SetEqnImg(props.location.state.image)
+    //     fetch('https://jsonplaceholder.typicode.com/todos/1')
+    //       // .then(res => res.json())
+    //       .then(
+    //         (result) => {
               
-            },
-            (error) => {
-                Seterror(error);
-            }
-          )
+    //           // SetisLoaded(true);
+    //           // SetTest(result);
+    //           SetAns({
+    //             Eqn:"5x + 3 = 23",
+    //             TypeEqn:"Linear Equation",
+    //             EqnAns:"x = 4"
+    //             });
+    //           // SetAns(result);
+              
+    //         },
+    //         (error) => {
+    //             Seterror(error);
+    //         }
+    //       )
           
-    });
-
+    // });
     if (error) {
         return <div className=" container text-center home-para" style={{marginTop:"50px",fontSize:"40px"}}>Error: {error.message}</div>;
       } else if (!isLoaded) {
@@ -49,7 +61,8 @@ export default function ApiFetcher(props) {
       } else {
         return (
             <div>
-                <Answer Ans={Ans}/>
+                <Answer Ans={a}/>
+                {test}
                 </div>
         );
       }
