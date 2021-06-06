@@ -60,7 +60,7 @@ export default function ApiFetcher(props) {
         return (
             <div>
                 <Answer Ans={Ans}/>
-                <img src={Ans.image} />
+                
                 </div>
         );
       }
