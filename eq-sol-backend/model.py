@@ -1,9 +1,23 @@
 from keras.models import model_from_json
 import cv2
 import numpy as np
+from PIL import Image 
+import requests
+import base64
+from io import StringIO 
 
-def model(image):
+def data_uri_to_cv2_img(uri):
+    # print(uri)
+    encoded_data = str(uri).split(',')[1]
+    nparr = np.fromstring(base64.b64decode(encoded_data), np.uint8)
+    img = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
+    return img
+
+    # image contains the image in base64 format
+def model(image): 
    
+   
+    # Image.open(image).save('input.png')
     # load json and create model
     json_file = open('model.json', 'r')
     loaded_model_json = json_file.read()
@@ -11,9 +25,11 @@ def model(image):
     loaded_model = model_from_json(loaded_model_json)
     # load weights into new model
     loaded_model.load_weights("model.h5")
-    print(image)
+    
+    img_enc = data_uri_to_cv2_img(image)
+    img = cv2.cvtColor(img_enc,cv2.COLOR_BGR2GRAY)
 
-    img = cv2.imread('pic.png',cv2.IMREAD_GRAYSCALE)
+    # img = cv2.imread('te.png',cv2.IMREAD_GRAYSCALE)
     #kernel = np.ones((3,3),np.uint8)
     # cv2.imshow("w",img)
     cv2.waitKey(0)

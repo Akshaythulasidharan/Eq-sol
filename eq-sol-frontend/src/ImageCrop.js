@@ -70,20 +70,23 @@ export default class ImageCrop extends Component {
       crop.width,
       crop.height
     );
-    
-    return new Promise((resolve, reject) => {
-      canvas.toBlob(blob => {
-        if (!blob) {
-          //reject(new Error('Canvas is empty'));
-          console.error('Canvas is empty');
-          return;
-        }
-        blob.name = fileName;
-        window.URL.revokeObjectURL(this.fileUrl);
-        this.fileUrl = window.URL.createObjectURL(blob);
-        resolve(this.fileUrl);
-      }, 'image/jpeg');
-    });
+
+    const base64Image = canvas.toDataURL('image/png');
+    return base64Image
+
+    // return new Promise((resolve, reject) => {
+    //   canvas.toBlob(blob => {
+    //     if (!blob) {
+    //       //reject(new Error('Canvas is empty'));
+    //       console.error('Canvas is empty');
+    //       return;
+    //     }
+    //     blob.name = fileName;
+    //     window.URL.revokeObjectURL(this.fileUrl);
+    //     this.fileUrl = window.URL.createObjectURL(blob);
+    //     resolve(this.fileUrl);
+    //   }, 'image/jpeg');
+    // });
   }
 
   render() {

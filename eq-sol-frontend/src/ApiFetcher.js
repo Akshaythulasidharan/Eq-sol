@@ -6,6 +6,16 @@
 import React, {useEffect, useState } from 'react'
 import Answer from './Answer';
 
+const blobToBase64 = blob => {
+  const reader = new FileReader();
+  reader.readAsDataURL(blob);
+  return new Promise(resolve => {
+    reader.onloadend = () => {
+      resolve(reader.result);
+    };
+  });
+};
+
 export default function ApiFetcher(props) {
 
     const [error,Seterror] = useState(0);
@@ -23,7 +33,9 @@ export default function ApiFetcher(props) {
     
 
     useEffect(() => {
-      SetEqnImg(props.location.state.image)
+      let img = (props.location.state.image);
+      SetEqnImg(img)
+
       fetch('http://127.0.0.1:5000/api',{
         method:'POST',
         headers:{
@@ -60,7 +72,7 @@ export default function ApiFetcher(props) {
         return (
             <div>
                 <Answer Ans={Ans}/>
-                
+              
                 </div>
         );
       }
