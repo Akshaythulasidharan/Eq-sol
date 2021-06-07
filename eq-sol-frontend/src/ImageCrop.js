@@ -6,6 +6,7 @@ import React, {Component} from 'react'
 import 'react-image-crop/dist/ReactCrop.css';
 import ReactCrop from 'react-image-crop';
 import { Link } from 'react-router-dom';
+import { triggerBase64Download } from 'react-base64-downloader';
  
 export default class ImageCrop extends Component {
   state = {
@@ -72,6 +73,7 @@ export default class ImageCrop extends Component {
     );
 
     const base64Image = canvas.toDataURL('image/png');
+    // triggerBase64Download(base64Image, 'my_download_name')
     return base64Image
 
     // return new Promise((resolve, reject) => {

@@ -12,6 +12,7 @@ tensorflow = "*"
 numpy = "*"
 pillow = "*"
 werkzeug = "*"
+flask-restful = "*"
 
 [dev-packages]
 

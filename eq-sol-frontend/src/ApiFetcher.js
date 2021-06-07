@@ -5,6 +5,7 @@
 //which displays answer, visit Answer.js
 import React, {useEffect, useState } from 'react'
 import Answer from './Answer';
+import i  from './images/my_download_name.png'
 
 const blobToBase64 = blob => {
   const reader = new FileReader();
@@ -34,8 +35,8 @@ export default function ApiFetcher(props) {
 
     useEffect(() => {
       let img = (props.location.state.image);
-      SetEqnImg(img)
-
+      SetEqnImg(img.split(',')[1])
+      // console.log(img)
       fetch('http://127.0.0.1:5000/api',{
         method:'POST',
         headers:{
@@ -53,15 +54,17 @@ export default function ApiFetcher(props) {
             
         
             
-          },
-          (error) => {
-              Seterror(error);
           }
+          // ,
+          // (error) => {
+          //     Seterror(error);
+          // }
         )
         
   });
     if (error) {
-        return <div className=" container text-center home-para" style={{marginTop:"50px",fontSize:"40px"}}>Error: {error.message}</div>;
+        
+      return <div className=" container text-center home-para" style={{marginTop:"50px",fontSize:"40px"}}>Error: {error.message}</div>;
       } else if (!isLoaded) {
         return(
             <div className="container" >

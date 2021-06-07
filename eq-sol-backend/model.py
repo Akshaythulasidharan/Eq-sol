@@ -4,32 +4,18 @@ import numpy as np
 from PIL import Image 
 import requests
 import base64
-from io import StringIO 
+import io  
 
-def data_uri_to_cv2_img(uri):
-    # print(uri)
-    encoded_data = str(uri).split(',')[1]
-    nparr = np.fromstring(base64.b64decode(encoded_data), np.uint8)
-    img = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
-    return img
-
-    # image contains the image in base64 format
-def model(image): 
-   
-   
-    # Image.open(image).save('input.png')
-    # load json and create model
+def processor(url):
     json_file = open('model.json', 'r')
     loaded_model_json = json_file.read()
     json_file.close()
     loaded_model = model_from_json(loaded_model_json)
     # load weights into new model
     loaded_model.load_weights("model.h5")
-    
-    img_enc = data_uri_to_cv2_img(image)
-    img = cv2.cvtColor(img_enc,cv2.COLOR_BGR2GRAY)
+    print("Loaded model from disk")
 
-    # img = cv2.imread('te.png',cv2.IMREAD_GRAYSCALE)
+    img = cv2.imread(url,cv2.IMREAD_GRAYSCALE)
     #kernel = np.ones((3,3),np.uint8)
     # cv2.imshow("w",img)
     cv2.waitKey(0)
@@ -91,7 +77,7 @@ def model(image):
             cv2.destroyAllWindows()
 
             im_resize=np.reshape(im_resize,(1,28,28))
-            train_data.append(im_resize)\
+            train_data.append(im_resize)
 
     s=""
     for i in range(len(train_data)):
@@ -188,13 +174,24 @@ def model(image):
             s=s+")"
         if(result[0]==44):
             s=s+"="
-    # print("The entered equation is", s)  
+    print("The entered equation is", s)  
 
-    # print("The Answer is:", eval(s))      
+    print("The Answer is:", eval(s))      
 
     return { 'id': 1,
         'Eqn':s,
-       'TypeEqn':'Connected to backend',
-       'EqnAns':eval(s),
-       'image': image
+       'TypeEqn':'simple expression',
+       'EqnAns':eval(s)
        }
+
+
+
+
+def model(image): 
+   
+    # Image.open(image).save('input.png')
+    # load json and create model
+    Image.open(image).save('input.png')
+    Result = processor('input.png')
+    # img = stringToRGB(image)
+    return Result
