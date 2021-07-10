@@ -3,7 +3,10 @@ from sympy import sympify
 from sympy.abc import F, x, y, z, a, b
 from sympy.parsing.sympy_parser import parse_expr
 
-
+if '*' in s:
+    t = s.replace('x','')
+    s=t
+  
 if "x" in s:
     try:
         equation = s.replace('--','=')
@@ -12,7 +15,7 @@ if "x" in s:
             if i==0:
                 continue
             if equation[i] == 'x':
-                if equation[i-1] == '+' or equation[i-1] == '-':
+                if equation[i-1] == '+' or equation[i-1] == '-' or equation[i-1] == '=':
                     continue
                 else:
                     a.append(i)
@@ -30,7 +33,10 @@ if "x" in s:
         lhs =  parse_expr(equation.split("=")[0])
         rhs =  parse_expr(equation.split("=")[1])
         solution = solve(lhs-rhs)
-        print(solution[0])
+        decSol = round(solution[0]*1.0,2)
+
+        print(solution[0]) #fractional solution
+        print(decSol) #decimal solution
     except:
         print("invalid equation")
 else:
