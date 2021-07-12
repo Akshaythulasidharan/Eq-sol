@@ -1,1 +1,2 @@
-# Eq-sol
+# eq-sol
+ 
