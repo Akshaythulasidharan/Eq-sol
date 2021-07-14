@@ -1,5 +1,4 @@
 # EQ-Sol
-![title](eq-sol-frontend/src/images/EQ Sol Logo Full.png)
 ### Handwritten Equation Solving Web Application
 
 
